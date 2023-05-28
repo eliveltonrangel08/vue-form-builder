@@ -1,14 +1,13 @@
 <template>
     <div class="section-container">
-        <component
-            :is="sectionViewComponent"
-            :section="section"
-            :rows="rows"
-            :controls="controls"
-            :key="section.uniqueId"
-            :value-container="valueContainer"
-            :validation-errors="validationErrors"
-            :read-only="readOnly"
+
+        <component :is="sectionViewComponent"
+                   :section="section"
+                   :rows="rows"
+                   :controls="controls"
+                   :key="section.uniqueId"
+                   :value-container="valueContainer"
+                   :validation-errors="validationErrors"
         />
     </div>
 </template>
@@ -25,7 +24,6 @@
             controls: Object,
             valueContainer: Object,
             validationErrors: Object,
-            readOnly: Boolean,
         },
 
         computed: {

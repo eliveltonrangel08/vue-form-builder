@@ -2,19 +2,11 @@
     <button :id="control.uniqueId"
             :class="buttonClasses"
             :name="control.name"
+            v-text="control.label"
             :type="control.buttonType || 'button'"
-            :disabled="isValidationRunning"
-
+            :disabled="control.isDisabled"
             @click="clickedHandle"
-    >
-        <svg v-show="isValidationRunning" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: inline-block; padding-right: 10px;" width="30px" height="30px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-            <circle cx="50" cy="50" fill="none" stroke="#93dbe9" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138">
-              <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
-            </circle>
-        </svg>
-
-        {{buttonText}}
-    </button>
+    ></button>
 </template>
 
 <script>
@@ -33,9 +25,6 @@
     export default {
         name: "ButtonControl",
         mixins: [CONTROL_FIELD_EXTEND_MIXIN],
-        data: () => ({
-            isValidationRunning: false,
-        }),
         methods: {
             /**
              * What should we do if user clicked?
@@ -43,12 +32,7 @@
              *  - Emit
              */
             clickedHandle() {
-                if (!!this.valueContainer) {
-                    return console.log("CLICKED SUBMIT BUTTON", this.control.uniqueId)
-                }
-
                 if (this.control.isRunValidation) {
-                    this.isValidationRunning = true
                     this.$formEvent.$emit(EVENT_CONSTANTS.RENDERER.RUN_VALIDATION, true)
                 } else {
                     // no need to validation => submit
@@ -60,17 +44,8 @@
              * [VALIDATION-OK-EMIT] Continue to process
              */
             continueProcessAfterValidationOk() {
-                this.isValidationRunning = false
-
                 // can be submit after validation
                 this.submit()
-            },
-
-            /**
-             * [VALIDATION-FAILED-EMIT] Garbage collecting...
-             */
-            processFailedValidation() {
-                this.isValidationRunning = false
             },
 
             /**
@@ -103,20 +78,11 @@
                     this.control.buttonClass,
                     this.control.additionalFieldClass
                 ]
-            },
-
-            buttonText() {
-                if (this.isValidationRunning) {
-                    return "Validating..."
-                }
-
-                return this.control.label
-            },
+            }
         },
 
         created() {
             this.$formEvent.$on(EVENT_CONSTANTS.RENDERER.VALIDATION_OK, this.continueProcessAfterValidationOk)
-            this.$formEvent.$on(EVENT_CONSTANTS.RENDERER.VALIDATION_FAILED, this.processFailedValidation)
         },
     }
 </script>

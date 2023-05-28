@@ -37,6 +37,13 @@
             </label>
         </div>
 
+      <div :class="styles.FORM.FORM_GROUP">
+        <label>
+          Hide in Report?
+          <input type="checkbox" v-model="sectionConfiguration.hideOnReport">
+        </label>
+      </div>
+
         <div class="buttons">
             <button :class="styles.BUTTON.PRIMARY" @click="save(false)">
                 Save

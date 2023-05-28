@@ -81,6 +81,7 @@ const SECTION_DEFAULT_DATA = {
     subHeadlineAdditionalClass: '',
 
     isShowHeadline: true,
+    hideOnReport: false,
 
     sortOrder: 0,
     type: '',

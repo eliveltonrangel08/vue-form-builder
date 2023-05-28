@@ -13,16 +13,7 @@ const CONFIGURATION = {
         formConfiguration: {
             type: Object,
             required: true,
-        },
-
-        /**
-         * Read-only mode
-         * Show up text instead of input controls
-         */
-        readOnly: {
-            type: Boolean,
-            default: () => false,
-        },
+        }
     },
 
     watch: {

@@ -5,6 +5,7 @@
            :value="number"
            :name="control.name"
            :placeholder="control.placeholderText"
+           :disabled="control.isDisabled"
            @input="convertToNumber($event.target.value)"
     />
 </template>

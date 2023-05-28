@@ -6,14 +6,12 @@
         </div>
 
         <div :class="containerClasses">
-            <ControlView
-                v-for="controlId in section.controls"
-                :key="controlId"
-                :control="controls[controlId]"
-                :parent-id="section.uniqueId"
-                :value-container="valueContainer"
-                :validation-errors="validationErrors"
-                :read-only="readOnly"
+            <ControlView v-for="controlId in section.controls"
+                         :key="controlId"
+                         :control="controls[controlId]"
+                         :parent-id="section.uniqueId"
+                         :value-container="valueContainer"
+                         :validation-errors="validationErrors"
             />
         </div>
     </div>

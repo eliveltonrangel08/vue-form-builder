@@ -37,7 +37,6 @@ const RENDERER_ROW_VIEW_MIXIN = {
 
         valueContainer: Object,
         validationErrors: Object,
-        readOnly: Boolean,
     },
 
     computed: {

@@ -9,8 +9,11 @@ import App from './App.vue'
 // @ts-ignore
 import {VueFormBuilderPlugin} from "@/index";
 import {IRegisterProperties} from "@/interfaces/register-properties.interface";
+// @ts-ignore
+import { VueMaskDirective } from 'v-mask';
 
 Vue.config.productionTip = false
+Vue.directive('mask', VueMaskDirective);
 
 const configOptions : IRegisterProperties = {
   disableControls: [], // ['input', 'number']

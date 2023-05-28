@@ -44,14 +44,12 @@ const CONTROLS = {
         name: "Input Field",
         description: "Input text single line",
         icon: 'editPencil', // Follow ICON in `icon-facade.js` to see how it works.
-
-        configData: {
-            typeAttribute: "text", // date, password
-        },
+        hasMask: false,
+        mask: null,
 
         // component mapping
         fieldComponent: InputControl,
-        configComponent: InputConfigView,
+        configComponent: InputConfigView
     },
 
     number: {
@@ -100,30 +98,32 @@ const CONTROLS = {
     //     description: "Multiple line text field - Rich Editor (WYSIWYG)",
     // },
 
-    date: {
-        name: "Date Picker",
-        description: "Simple date picker field",
-
-        configData: {
-            format: "DD/MM/YYYY",
-            firstDay: DATE_PICKER_START_DATES.monday.val, // 0 Sunday, 1 Monday,...
-            numberOfMonths: 1, // Number of Month(s) will be shown
-            numberOfColumns: 1, // Number of Column(s) will be shown
-            minDate: null, // min day (less => can't select)
-            maxDate: null,// max day (more => can't select),
-
-            singleMode: true, // date or date-range
-
-            // for date-range
-            minDays: 0, // min-day range
-            maxDays: 0, // max-day range
-
-            returnType: DATE_PICKER_RETURN_TYPES.format.val, // specific return type
-        },
-
-        fieldComponent: DatePickerControl,
-        configComponent: DatePickerConfigView
-    },
+    // date: {
+    //     name: "Date Picker",
+    //     description: "Simple date picker field",
+    //
+    //     configData: {
+    //         format: "DD/MM/YYYY",
+    //         firstDay: DATE_PICKER_START_DATES.monday.val, // 0 Sunday, 1 Monday,...
+    //         numberOfMonths: 1, // Number of Month(s) will be shown
+    //         numberOfColumns: 1, // Number of Column(s) will be shown
+    //         minDate: null, // min day (less => can't select)
+    //         maxDate: null,// max day (more => can't select),
+    //         hasMask: true,
+    //         mask: "##/##/####",
+    //
+    //         singleMode: true, // date or date-range
+    //
+    //         // for date-range
+    //         minDays: 0, // min-day range
+    //         maxDays: 0, // max-day range
+    //
+    //         returnType: DATE_PICKER_RETURN_TYPES.format.val, // specific return type
+    //     },
+    //
+    //     fieldComponent: DatePickerControl,
+    //     configComponent: DatePickerConfigView
+    // },
 
     // fileUpload: {
     //     name: "File Upload",
@@ -196,41 +196,41 @@ const CONTROLS = {
         configComponent: RadioCheckboxConfigView
     },
 
-    fileUploader: {
-        name: "File Uploader",
-        description: "File Uploader Control from vue-upload-component",
-        disableValidation: true,
-
-        // config data
-        configData: {
-            // for styling
-            buttonLabel: "Select File",
-            buttonClasses: "btn btn-primary",
-
-            // for components
-            postActionURL: "/your-api-post-url-to-upload",
-            extensions: ".gif,.png,.jpg,.jpeg",
-            accept: "image/gif,image/jpeg,image/png",
-            maxSize: 1000, // in bytes - 0 unlimited
-
-            isMultiple: false,
-            maximumFiles: 1, // if multiple is on, we need to configure this one
-
-            // special configurations
-            // these will be appended when the vue-uploader-component make a request
-            headers: [],
-            postData: []
-        },
-
-        fieldComponent: FileUploaderControl,
-        configComponent: FileUploaderConfigView
-    },
+    // fileUploader: {
+    //     name: "File Uploader",
+    //     description: "File Uploader Control from vue-upload-component",
+    //     disableValidation: true,
+    //
+    //     // config data
+    //     configData: {
+    //         // for styling
+    //         buttonLabel: "Select File",
+    //         buttonClasses: "btn btn-primary",
+    //
+    //         // for components
+    //         postActionURL: "/your-api-post-url-to-upload",
+    //         extensions: ".gif,.png,.jpg,.jpeg",
+    //         accept: "image/gif,image/jpeg,image/png",
+    //         maxSize: 1000, // in bytes - 0 unlimited
+    //
+    //         isMultiple: false,
+    //         maximumFiles: 1, // if multiple is on, we need to configure this one
+    //
+    //         // special configurations
+    //         // these will be appended when the vue-uploader-component make a request
+    //         headers: [],
+    //         postData: []
+    //     },
+    //
+    //     fieldComponent: FileUploaderControl,
+    //     configComponent: FileUploaderConfigView
+    // },
 
     label: {
         name: "Label",
         description: "Simple label text show up in your Form",
         disableValue: true,
-        
+
         configData: {
             forAttribute: null, // `for` for any control? (except the Label)
 
@@ -244,29 +244,29 @@ const CONTROLS = {
         configComponent: LabelConfigView
     },
 
-    button: {
-        name: "Button",
-        description: "Simple button for your own purpose",
-        disableValidation: true,
-        disableValue: true,
-
-        configData: {
-            buttonClass: STYLES.BUTTON.PRIMARY,
-            buttonType: "button", // submit/reset/button/...
-
-            emitEventCode: "", // like: "BtnClicked/clicked/change"
-            emitEventData: "", // special data to emit to let you know which button is clicked
-
-            // if this is true => validation will be run before the real invoke method
-            isRunValidation: false,
-
-            // Override here in order to not show the Label
-            isShowLabel: false,
-        },
-
-        fieldComponent: ButtonControl,
-        configComponent: ButtonConfigView
-    },
+    // button: {
+    //     name: "Button",
+    //     description: "Simple button for your own purpose",
+    //     disableValidation: true,
+    //     disableValue: true,
+    //
+    //     configData: {
+    //         buttonClass: STYLES.BUTTON.PRIMARY,
+    //         buttonType: "button", // submit/reset/button/...
+    //
+    //         emitEventCode: "", // like: "BtnClicked/clicked/change"
+    //         emitEventData: "", // special data to emit to let you know which button is clicked
+    //
+    //         // if this is true => validation will be run before the real invoke method
+    //         isRunValidation: false,
+    //
+    //         // Override here in order to not show the Label
+    //         isShowLabel: false,
+    //     },
+    //
+    //     fieldComponent: ButtonControl,
+    //     configComponent: ButtonConfigView
+    // },
 
     emptyBlock: {
         name: "Empty Block",
@@ -306,10 +306,14 @@ const CONTROL_DEFAULT_DATA = {
     'label': '',
     'subLabel': '',
     'isShowLabel': true,
+    'isDisabled': false,
+    'isUpperCaseMode': false,
+    'hideOnReport': false,
 
     'placeholderText': '', // :placeholder
 
-    'containerClass': STYLES.COLUMNS.COL4,
+    'containerClass': STYLES.COLUMNS.COL6,
+    'textTransformClass': STYLES.TEXT_TRANSFORM.NONE,
     'additionalContainerClass': '', // :class for the <div> outer container
 
     'additionalFieldClass': '', // :class for <input> <select> ...

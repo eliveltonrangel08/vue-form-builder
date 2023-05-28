@@ -1,25 +1,15 @@
 <template>
     <div :class="[control.containerClass, 'control-view-wrapper', control.additionalContainerClass]">
         <div class="control-view">
-            <!-- render the label, readonly should show the label -->
-            <ControlLabel
-                v-show="control.isShowLabel || readOnly"
-                :control="control"
-                :read-only="readOnly"
-            />
+            <!-- render the label -->
+            <ControlLabel v-show="control.isShowLabel" :control="control" />
 
             <!-- render the exact field -->
-            <component
-                v-if="!readOnly"
-                v-model="valueContainer[controlName]"
-                :is="controlComponent"
-                :control="control"
-                :value-container="valueContainer"
-                :class="validationErrorClasses"
-            />
-            <p
-                v-else
-                v-text="valueContainer[controlName]"
+            <component :is="controlComponent"
+                       :control="control"
+                       :value-container="valueContainer"
+                       v-model="valueContainer[controlName]"
+                       :class="validationErrorClasses"
             />
 
             <!-- validation error -->
@@ -59,11 +49,7 @@
             validationErrors: {
                 type: Object,
                 default: () => ({}) // empty object
-            },
-            readOnly: {
-              type: Boolean,
-              default: false,
-            },
+            }
         },
 
         computed: {

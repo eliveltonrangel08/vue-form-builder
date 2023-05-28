@@ -221,7 +221,32 @@ const FORM_BUILDER_EVENT_HANDLER = {
         this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.CONTROL.CREATE, this.controlNewAdded)
         this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.CONTROL.DELETE, this.controlDeletion)
         this.$formEvent.$on(EVENT_CONSTANTS.BUILDER.CONTROL.UPDATE, this.controlUpdated)
-    }
+    },
+    beforeDestroy() {
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.CONTROL.CREATE)
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.CONTROL.DELETE)
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.CONTROL.UPDATE)
+
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.MODAL.INJECT)
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.MODAL.OPEN)
+
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.ROW.CREATE)
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.ROW.DELETE)
+
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.SECTION.ADDED_ROW)
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.SECTION.DELETE)
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.SECTION.UPDATE)
+
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.SIDEBAR.AFTER_CLOSED)
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.SIDEBAR.INJECT)
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPEN)
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.SIDEBAR.OPENED)
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE)
+        this.$formEvent.$off(EVENT_CONSTANTS.BUILDER.SIDEBAR.SAVE_AND_CLOSE)
+    },
+    // beforeUpdate() {
+    //     console.log(this.$formEvent._events)
+    // }
 }
 
 export {

@@ -9,6 +9,7 @@
         :extensions="control.extensions"
         :size="control.maxSize"
         :maximum="maximumFilesCanBeUploaded"
+        :disabled="control.isDisabled"
 
         :headers="configuredHeaders"
         :data="configuredPostData"

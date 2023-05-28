@@ -4,6 +4,7 @@
             :name="control.name || control.uniqueId"
             @input="updateValue($event.target.value)"
             :multiple="this.control.multiple"
+            :disabled="control.isDisabled"
     >
         <!-- placeholder -->
         <option disabled

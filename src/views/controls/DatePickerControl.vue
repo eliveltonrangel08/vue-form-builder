@@ -1,20 +1,44 @@
 <template>
     <div>
         <template v-if="control.singleMode">
-            <input type="text"
+
+            <input v-if="control.hasMask"
+                   type="text"
                    :id="control.uniqueId"
                    :name="control.name || control.uniqueId"
                    :placeholder="control.placeholderText"
                    :class="styles.FORM.FORM_CONTROL"
                    autocomplete="off"
+                   :disabled="control.isDisabled"
+                   v-mask="control.mask"
+            />
+            <input v-else
+                   type="text"
+                   :id="control.uniqueId"
+                   :name="control.name || control.uniqueId"
+                   :placeholder="control.placeholderText"
+                   :class="styles.FORM.FORM_CONTROL"
+                   autocomplete="off"
+                   :disabled="control.isDisabled"
             />
         </template>
         <template v-else>
-            <input type="text"
+            <input v-if="control.hasMask"
+                   type="text"
                    :id="control.uniqueId"
                    :placeholder="control.placeholderText"
                    :class="styles.FORM.FORM_CONTROL"
                    autocomplete="off"
+                   :disabled="control.isDisabled"
+                   v-mask="control.mask"
+            />
+            <input v-else
+                   type="text"
+                   :id="control.uniqueId"
+                   :placeholder="control.placeholderText"
+                   :class="styles.FORM.FORM_CONTROL"
+                   autocomplete="off"
+                   :disabled="control.isDisabled"
             />
 
             <!--

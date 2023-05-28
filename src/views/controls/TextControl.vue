@@ -7,6 +7,7 @@
             :rows="control.rows"
             :name="control.name"
             :placeholder="control.placeholderText"
+            :disabled="control.isDisabled"
             @input="updateValue($event.target.value)"
     ></textarea>
 </template>

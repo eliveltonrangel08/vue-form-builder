@@ -28,6 +28,27 @@
         </div>
 
         <div :class="styles.FORM.FORM_GROUP">
+            <label>
+                Disabled?
+                <input type="checkbox" v-model="control.isDisabled">
+            </label>
+        </div>
+
+        <div :class="styles.FORM.FORM_GROUP">
+            <label>
+                Uppercase mode?
+                <input type="checkbox" v-model="control.isUpperCaseMode">
+            </label>
+        </div>
+
+      <div :class="styles.FORM.FORM_GROUP">
+        <label>
+          Hide in Report?
+          <input type="checkbox" v-model="control.hideOnReport">
+        </label>
+      </div>
+
+        <div :class="styles.FORM.FORM_GROUP">
             <label>Field Placeholder (Optional)</label>
             <input type="text" :class="styles.FORM.FORM_CONTROL" v-model="control.placeholderText">
         </div>

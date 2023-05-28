@@ -1,12 +1,29 @@
 <template>
-    <input :id="control.uniqueId"
-           :type="control.typeAttribute"
+  <div>
+    <input v-if="control.hasMask"
+           :id="control.uniqueId"
+           type="text"
            :class="controlFieldClass"
            :value="value"
            :name="control.name || control.uniqueId"
            :placeholder="control.placeholderText"
+           :disabled="control.isDisabled"
+           v-mask="control.mask"
            @input="updateValue($event.target.value)"
     />
+    <input v-else
+           :id="control.uniqueId"
+           type="text"
+           :class="controlFieldClass"
+           :value="value"
+           :name="control.name || control.uniqueId"
+           :placeholder="control.placeholderText"
+           :disabled="control.isDisabled"
+           @input="updateValue($event.target.value)"
+    />
+
+
+  </div>
 </template>
 
 <script>

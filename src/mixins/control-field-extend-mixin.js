@@ -50,7 +50,12 @@ const CONTROL_FIELD_EXTEND_MIXIN = {
          * @param val
          */
         updateValue(val) {
-            this.$emit(EMIT_EVENT, val)
+            if (this.control.isUpperCaseMode) {
+                this.$emit(EMIT_EVENT, val.toUpperCase())
+            } else {
+                this.$emit(EMIT_EVENT, val)
+            }
+
         },
 
         /**
@@ -68,7 +73,8 @@ const CONTROL_FIELD_EXTEND_MIXIN = {
         controlFieldClass() {
             return [
                 this.styles.FORM.FORM_CONTROL,
-                this.control.additionalFieldClass
+                this.control.additionalFieldClass,
+                this.control.textTransformClass
             ]
         },
 

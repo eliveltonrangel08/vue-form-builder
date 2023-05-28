@@ -118,16 +118,6 @@
                     "total_value": faker.finance.amount()
                 });
             },
-
-            setReadonly() {
-                if (this.readOnly) {
-                    this.readOnly = false;
-                    return;
-                }
-
-                this.setRandomData();
-                this.readOnly = true;
-            },
         }
     }
 </script>

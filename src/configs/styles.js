@@ -72,6 +72,16 @@ const STYLES = {
         TD_CLASS: "md-table-cell"
     },
 
+    /**
+     * Text classes
+     */
+    TEXT_TRANSFORM: {
+        UPPERCASE: "text-uppercase",
+        LOWERCASE: "text-lowercase",
+        CAPITALIZE: "text-capitalize",
+        NONE: "",
+    }
+
 };
 
 export {

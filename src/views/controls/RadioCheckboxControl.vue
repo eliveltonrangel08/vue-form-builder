@@ -10,6 +10,7 @@
                        :class="control.additionalFieldClass"
                        :name="inputName"
                        :value="listItem.value"
+                       :disabled="control.isDisabled"
                        v-model="valueContainer[controlName]"
                 >
 
@@ -34,6 +35,7 @@
                                :class="control.additionalFieldClass"
                                :name="inputName"
                                :value="listItem.value"
+                               :disabled="control.isDisabled"
                                v-model="valueContainer[controlName]"
                         >
 
