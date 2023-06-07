@@ -17,27 +17,27 @@ import {
 // Control-GUI-Component
 import InputControl from "@/views/controls/InputControl"
 import TextControl from "@/views/controls/TextControl"
-import ButtonControl from "@/views/controls/ButtonControl"
+// import ButtonControl from "@/views/controls/ButtonControl"
 import EmptyBlockControl from "@/views/controls/EmptyBlockControl";
 import TextBlockControl from "@/views/controls/TextBlockControl";
 import LabelControl from "@/views/controls/LabelControl";
 import RadioCheckboxControl from "@/views/controls/RadioCheckboxControl";
-import DatePickerControl from "@/views/controls/DatePickerControl";
+// import DatePickerControl from "@/views/controls/DatePickerControl";
 import NumberControl from "@/views/controls/NumberControl";
 import DropdownControl from "@/views/controls/DropdownControl";
-import FileUploaderControl from "@/views/controls/FileUploaderControl";
+// import FileUploaderControl from "@/views/controls/FileUploaderControl";
 
 // Control-Config-Component
-import InputConfigView from "@/views/control-configs/InputConfigView";
 import TextBlockConfigView from "@/views/control-configs/TextBlockConfigView";
-import ButtonConfigView from "@/views/control-configs/ButtonConfigView";
+// import ButtonConfigView from "@/views/control-configs/ButtonConfigView";
 import LabelConfigView from "@/views/control-configs/LabelConfigView";
 import RadioCheckboxConfigView from "@/views/control-configs/RadioCheckboxConfigView";
 import NumberConfigView from "@/views/control-configs/NumberConfigView";
-import DatePickerConfigView from "@/views/control-configs/DatePickerConfigView";
+// import DatePickerConfigView from "@/views/control-configs/DatePickerConfigView";
 import TextConfigView from "@/views/control-configs/TextConfigView";
 import DropdownConfigView from "@/views/control-configs/DropdownConfigView";
-import FileUploaderConfigView from "@/views/control-configs/FileUploaderConfigView";
+// import FileUploaderConfigView from "@/views/control-configs/FileUploaderConfigView";
+import InputConfigView from '@/views/control-configs/InputConfigView';
 
 const CONTROLS = {
     input: {
@@ -46,6 +46,8 @@ const CONTROLS = {
         icon: 'editPencil', // Follow ICON in `icon-facade.js` to see how it works.
         hasMask: false,
         mask: null,
+
+        configData: {},
 
         // component mapping
         fieldComponent: InputControl,

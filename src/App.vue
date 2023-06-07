@@ -31,22 +31,11 @@
                 </button>
 
                 <button class="btn btn-info mr-2" @click="setRandomData">Set Random Data</button>
-
-                <button
-                    class="btn btn-info mr-2"
-                    @click="setReadonly"
-                >
-                    <span v-show="readOnly">Turn off ReadOnly mode</span>
-                    <span v-show="!readOnly">Turn on ReadOnly mode</span>
-                </button>
             </div>
 
-            <FormRenderer
-                v-model="formInputData"
-                :class="{'col-md-9': isShowData, 'col-md-12': !isShowData}"
-                :form-configuration="formData"
-                :read-only="readOnly"
-            />
+            <FormRenderer :class="{'col-md-9': isShowData, 'col-md-12': !isShowData}"
+                          :form-configuration="formData"
+                          v-model="formInputData" />
 
             <div class="p-0" :class="{'col-md-3': isShowData, 'd-none': !isShowData}">
                 <h4>Form Input Data</h4>
@@ -74,8 +63,7 @@
             isShowDevNote: false,
             isRenderer: false,
             formInputData: null,
-            isShowData: false,
-            readOnly: false,
+            isShowData: false
         }),
         methods: {
             getData() {
