@@ -77,12 +77,10 @@ const MODEL = {
             if (this.value) {
                 this.$emit(EMIT_EVENT, containerObj)
                 Object.assign(containerObj, this.value)
-              console.log("Form values updated", this.valueContainer)
             }
 
             // set to the real handler
             this.valueContainer = containerObj
-          console.log("Form values updated", this.valueContainer)
         }
     },
 
