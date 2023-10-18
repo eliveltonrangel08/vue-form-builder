@@ -76,6 +76,7 @@ const MODEL = {
             // emit to the parent for the value detail
             if (this.value) {
                 this.$emit(EMIT_EVENT, containerObj)
+                Object.assign(containerObj, this.value)
             }
 
             // set to the real handler
@@ -84,7 +85,7 @@ const MODEL = {
     },
 
     created() {
-        this.createValueContainer()
+      this.createValueContainer()
     },
 }
 
