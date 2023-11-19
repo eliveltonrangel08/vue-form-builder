@@ -75,6 +75,10 @@ export default class Validation {
              * start the validation process by each rules added for the control
              */
             for (const validationRule of controlRules) {
+              if (!Object.keys(validationRule).includes('ruleType')) {
+                console.log('CAMPO COM VALIDACAO INCORRETA: ', key)
+                continue
+              }
                 const status = this._singleRuleRun(validationRule, controlValue)
                 if (!status) {
                     this.validationResult.addError(key, validationRule)
